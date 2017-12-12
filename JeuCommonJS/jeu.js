@@ -1,4 +1,5 @@
 const readline = require('readline'); // lib/readline.js
+const chalk = require('chalk'); // node_modules/chalk
 const random = require('./random');
 
 class Jeu {
@@ -17,7 +18,7 @@ class Jeu {
     if (this.essais.length) {
       console.log(`Vous avez déjà joué : ${this.essais.join(' - ')}`);
     }
-    this._rl.question('Quel est le nombre ? ', (answer) => {
+    this._rl.question(chalk.blue('Quel est le nombre ? '), (answer) => {
       const entierSaisi = Number.parseInt(answer);
       if (Number.isNaN(entierSaisi)) {
         console.log('Erreur : il faut saisir un nombre');

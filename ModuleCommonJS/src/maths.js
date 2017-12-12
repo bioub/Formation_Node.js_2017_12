@@ -1,4 +1,4 @@
-// (function (exports = {}, require, module, __filename, __dirname) {
+// (function (exports, require, module, __filename, __dirname) {
 
 const convertToNumber = Number;
 const sum = (a, b) => convertToNumber(a) + convertToNumber(b);
