@@ -19,6 +19,9 @@ setTimeout(() => {
   }, 1000);
 }, 1000);
 
+
+
+
 console.log('fin');
 
 
@@ -29,10 +32,10 @@ console.log('fin');
 // |
 // |
 // |
-// |                 idle  cl
-// |st-st-cl('fin') ...... cbA-cbB ....
-// +------------------------------------------> temps
-//
-// event queue : request - request - mongo - request - mongo - mongo
+// |                    idle  cl      cl      cl-st      cl-st    cl-st
+// |st-st-st-cl('fin') ...... cbB ... cbA ... cb1s  .... cb1s ... cb1s ...
+// +------------------------------------------------------------------------------> temps
+//                                            1s         2s       3s
+// event queue :
 
-// fin
+

@@ -49,7 +49,7 @@ function createButton(val) {
 
   const btn = document.createElement('button');
   btn.innerText = val; // <button>val ici</button>
-  btn.addEventListener('click', () => { // callback async
+  btn.addEventListener('click', (event) => { // callback async
     // val est dans la portée de closure
     console.log(val);
   });

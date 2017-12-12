@@ -18,7 +18,7 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const readline = require('readline');
+const readline = require('readline'); // lib/readline.js
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -61,3 +61,17 @@ const jouer = function () {
 }
 
 jouer();
+
+// pile d'appels
+// ^
+// |
+// |
+// |
+// |
+// |                         question       question
+// |           question      jouer          jouer         rl.close
+// |rq-ci-grii-jouer    .... cbEntree  .... cbEntree .... cbEntree
+// +----------------------------------------------------------------> temps
+//                            ENTREE        ENTREE        ENTREE
+// event queue :
+
