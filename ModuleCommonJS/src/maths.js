@@ -2,12 +2,16 @@
 
 const convertToNumber = Number;
 const sum = (a, b) => convertToNumber(a) + convertToNumber(b);
-exports.substract = (a, b) => a - b;
+const substract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
-module.exports.divide = (a, b) => a / b;
+const divide = (a, b) => a / b;
 
-exports.sum = sum;
-module.exports.multiply = multiply;
+module.exports = {
+  sum,
+  substract,
+  multiply,
+  divide,
+}
 
 // });
 
