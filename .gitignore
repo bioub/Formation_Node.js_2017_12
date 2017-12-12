@@ -2,3 +2,5 @@
 *.msi
 node_modules
 dist
+.idea
+.vscode
