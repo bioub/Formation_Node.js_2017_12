@@ -15,7 +15,7 @@ console.time('Thread idle');
 
 try {
   try {
-    fs.statSync(dirPath);
+    const stats = fs.statSync(dirPath);
   }
   catch (err) {
     if (err.code === 'ENOENT') {

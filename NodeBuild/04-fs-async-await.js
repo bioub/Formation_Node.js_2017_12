@@ -17,6 +17,7 @@ async function logs() {
   try {
     try {
       const stats = await fs.stat(dirPath);
+
     }
     catch (err) {
       if (err.code === 'ENOENT') {
@@ -40,6 +41,5 @@ async function logs() {
 }
 
 logs();
-
 
 console.timeEnd('Thread idle');
