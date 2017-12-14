@@ -1,18 +1,51 @@
+const Contact = require('../models/contact');
 
-exports.list = (req, res, next) => {
-  res.json([{prenom: 'Romain'}]);
+exports.list = async (req, res, next) => {
+  const contacts = await Contact.find();
+  res.json(contacts);
 };
 
-exports.create = (req, res, next) => {
-  console.log(req.body);
-  res.statusCode = 201;
-  res.json({prenom: 'Romain'});
+exports.create = async (req, res, next) => {
+  try {
+    const contact = await Contact.create(req.body);
+    res.statusCode = 201;
+    res.json(contact);
+  }
+  catch (err) {
+    res.statusCode = 500;
+    res.json(err);
+  }
 };
 
-exports.show = (req, res, next) => {
-  res.json({prenom: 'Romain'});
+// Exercice intégrer mongoose ici
+exports.show = async (req, res, next) => {
+  try {
+    const contact = await Contact.findById(req.params.id);
+
+    if (!contact) {
+      return next();
+    }
+
+    res.json(contact);
+  }
+  catch (err) {
+    res.statusCode = 500;
+    res.json(err);
+  }
 };
 
+// Exercice intégrer mongoose ici
 exports.delete = (req, res, next) => {
-  res.json({prenom: 'Romain'});
+  Contact.findByIdAndRemove(req.params.id)
+    .then((contact) => {
+      if (!contact) {
+        return next();
+      }
+
+      res.json(contact);
+    })
+    .catch((err) => {
+      res.statusCode = 500;
+      res.json(err);
+    })
 };

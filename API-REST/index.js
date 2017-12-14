@@ -1,5 +1,10 @@
 const { createServer } = require('http');
 const app = require('./app');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/test', { useMongoClient: true });
+mongoose.Promise = global.Promise;
+
 
 const server = createServer(app);
 
