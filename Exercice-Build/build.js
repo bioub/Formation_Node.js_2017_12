@@ -3,7 +3,7 @@ const path = require('path');
 const del = require('del');
 const md5 = require('md5');
 const UglifyJS = require('uglify-es');
-const argv = require('minimist')(process.argv);
+const argv = require('minimist')(process.argv.slice(2));
 
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
